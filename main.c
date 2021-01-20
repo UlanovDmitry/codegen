@@ -31,7 +31,7 @@ void readTemplate(const char* fileName, char* res){
     }
 }
 
-/* */
+/* /
 void replacePatterns(char* tmp_buf, char* res_buf){
     char *fnd = "comp";
     char *rpl = "lua"; 
@@ -47,6 +47,25 @@ void replacePatterns(char* tmp_buf, char* res_buf){
         fpos = strstr()
     }
 
+}
+*/
+
+/* */
+int save_strcopy(char* s, char* ss){
+    unsigned long len = strlen(s)+strlen(ss);
+    if (len < MAXSZ){
+        strcat(s,ss);
+        return 1;
+    } else {
+        strncat(s,ss,MAXSZ-strlen(s));
+        return 0;
+    }
+}
+
+/* */
+unsigned long find_pos(char* buf, char* fnd){
+    char* ptr = strstr(buf,fnd);
+    return ptr == NULL ? 0 : ptr-buf;
 }
 
 /* */
